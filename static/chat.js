@@ -222,23 +222,17 @@ chatForm.addEventListener("submit", async (e) => {
     chatbox.appendChild(u);
 
     // NEW WORKING CODE
-    const res = await fetch("http://127.0.0.1:5000/chat", {
+    const res = await fetch("/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             message: msg,
             lang: langSelect.value,
-            user_id: localStorage.getItem("user_id")
+
         })
     });
 
     const data = await res.json();
-
-    // ✅ STORE user_id ONCE
-    if (data.user_id && !localStorage.getItem("user_id")) {
-        localStorage.setItem("user_id", data.user_id);
-    }
-
     const bot = data.reply;
 
 
