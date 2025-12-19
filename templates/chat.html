@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Mero Kishan</title>
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='Logo/image.png') }}">
+
+	<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+	<!-- ⭐ ADDED: HISTORY BUTTON + SIDEBAR (NO DESIGN CHANGES MADE) ⭐ -->
+	<div id="history-btn" class="history-btn">☰</div>
+	<button id="new-chat-top-btn" class="new-chat-top-btn">
+		New Chat
+	</button>
+
+	<div id="history-sidebar" class="history-sidebar">
+		<div class="history-title-bar">Chat History</div>
+
+		<div id="history-list"></div>
+	</div>
+	<!-- ⭐ END OF ADDED HISTORY COMPONENT ⭐ -->
+
+
+	<div class="chat-container">
+		<div class="chat-container">
+			<div class="chat-card">
+
+				<!-- HEADER -->
+				<div class="chat-header">
+					<img src="{{ url_for('static', filename='Logo/image.png') }}" class="logo" alt="Mero Kishan Logo">
+					<div class="header-text">
+						<h2>Mero Kishan</h2>
+						<p>Your Smart Farming Assistant 🌿</p>
+					</div>
+				</div>
+
+				<!-- LANGUAGE SWITCH -->
+				<div class="lang-wrap">
+					<select id="lang" class="lang-select">
+						<option value="en">English</option>
+						<option value="ne">नेपाली (Nepali)</option>
+					</select>
+				</div>
+
+				<!-- CHATBOX -->
+				<div class="chat-box" id="chatbox"></div>
+
+				<!-- INPUT AREA -->
+				<div class="bottom-area">
+
+					<!-- PLUS BUTTON -->
+					<div class="plus-btn" id="plus-btn">+</div>
+
+					<!-- Upload Menu -->
+					<div id="upload-menu" class="upload-menu hidden">
+						<div class="menu-item" id="upload-photo">📁 <span>Add Photo</span></div>
+						<div class="menu-item" id="open-camera">📸 <span>Take Photo</span></div>
+					</div>
+
+					<input type="file" id="file-input" accept="image/*" hidden />
+
+					<!-- INPUT + MIC + SEND -->
+					<form id="chat-form" class="chat-input">
+						<input id="user-input" type="text" placeholder="Ask anything..." required />
+
+						<button type="button" id="mic-btn" class="mic-btn">
+							<svg class="mic-svg" viewBox="0 0 24 24">
+								<path fill="currentColor"
+									d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 14 0h-2zm-5 9a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2z" />
+							</svg>
+						</button>
+
+						<button type="submit" class="send-btn">➤</button>
+					</form>
+
+					<!-- RECORDING BAR -->
+					<div id="record-bar" class="record-bar hidden">
+						<div class="record-left">
+							<div class="dotted-line"></div>
+							<canvas id="wave-canvas" class="wave-canvas"></canvas>
+						</div>
+
+						<div class="record-actions">
+							<button id="cancel-rec" class="rec-btn cancel">✖</button>
+							<button id="confirm-rec" class="rec-btn confirm">✔</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		<script src="{{ url_for('static', filename='chat.js') }}"></script>
+
+</body>
+
+</html>
