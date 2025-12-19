@@ -1,5 +1,11 @@
-flask
+
 flask-cors
 groq
 pymongo
+
+
+
+flask
+gunicorn
+requests
 python-dotenv
